@@ -5,7 +5,7 @@ namespace GameCore
 {
     [CreateAssetMenu(fileName = "ItemsConfig",
         menuName = "Configs/Items")]
-    public class ItemsConfig : ScriptableObject
+    public class ItemConfig : ScriptableObject
     {
         public int Count => _itemsData.Length;
 
