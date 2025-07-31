@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GameCore
 {
@@ -8,6 +7,16 @@ namespace GameCore
         [SerializeField]
         private ItemConfig _config;
 
+        private int _currentSelected;
 
+        public void Select()
+        {
+
+        }
+
+        public void Apply()
+        {
+
+        }
     }
 }

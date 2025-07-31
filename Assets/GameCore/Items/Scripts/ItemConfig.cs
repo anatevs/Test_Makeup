@@ -34,7 +34,7 @@ namespace GameCore
 
         public Sprite ItemImage;
 
-        public Sprite PalleteImage;
+        public Sprite PalletImage;
 
         public Sprite FaceImage;
     }

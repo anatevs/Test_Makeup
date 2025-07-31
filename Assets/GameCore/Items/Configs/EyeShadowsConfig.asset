@@ -16,37 +16,37 @@ MonoBehaviour:
   _itemsData:
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: 40a2705c41485994da07e94bf7d54394, type: 3}
+    PalletImage: {fileID: 21300000, guid: 40a2705c41485994da07e94bf7d54394, type: 3}
     FaceImage: {fileID: 21300000, guid: 987013dad4d0b394d8c07d857c5408a8, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: ef7c91c3b3f3df544919d3fc8c2b9f3e, type: 3}
+    PalletImage: {fileID: 21300000, guid: ef7c91c3b3f3df544919d3fc8c2b9f3e, type: 3}
     FaceImage: {fileID: 21300000, guid: add2ad74ab2ef4c4ab71c1e5b5f42a38, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: b190638cb2066994e815a639983328af, type: 3}
+    PalletImage: {fileID: 21300000, guid: b190638cb2066994e815a639983328af, type: 3}
     FaceImage: {fileID: 21300000, guid: 8e42a8d66322fb34c80b23add53b50e8, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: 5f2e0ebb36ce0eb44b70608a8fc95f61, type: 3}
+    PalletImage: {fileID: 21300000, guid: 5f2e0ebb36ce0eb44b70608a8fc95f61, type: 3}
     FaceImage: {fileID: 21300000, guid: 07ebf22f84559384f90334aeabed1924, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: e2851c06379c30149855fa53ae9f840d, type: 3}
+    PalletImage: {fileID: 21300000, guid: e2851c06379c30149855fa53ae9f840d, type: 3}
     FaceImage: {fileID: 21300000, guid: a46e9021b1814304b9c7ed7ac2835a53, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: e613135dcad8fda459e1923678e11df0, type: 3}
+    PalletImage: {fileID: 21300000, guid: e613135dcad8fda459e1923678e11df0, type: 3}
     FaceImage: {fileID: 21300000, guid: fd31fb9ceccebda409a12ebacb5f47cf, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: 830bc741ecf9ddd49b0f8bef8c7856e6, type: 3}
+    PalletImage: {fileID: 21300000, guid: 830bc741ecf9ddd49b0f8bef8c7856e6, type: 3}
     FaceImage: {fileID: 21300000, guid: d0f131632edf236468fd26158703d0a6, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: d3c26ee435d6f8a408be016fb6fcdd75, type: 3}
+    PalletImage: {fileID: 21300000, guid: d3c26ee435d6f8a408be016fb6fcdd75, type: 3}
     FaceImage: {fileID: 21300000, guid: 978e1798bad777a4d98db4b109cd5ff9, type: 3}
   - Name: 
     ItemImage: {fileID: 21300000, guid: 304f4771a0f8554439b73fd315e44934, type: 3}
-    PalleteImage: {fileID: 21300000, guid: cf5b8f48606212746b61b03ec4c04022, type: 3}
+    PalletImage: {fileID: 21300000, guid: cf5b8f48606212746b61b03ec4c04022, type: 3}
     FaceImage: {fileID: 21300000, guid: 9871670b27d511c42b8e48dfbfd70a54, type: 3}
