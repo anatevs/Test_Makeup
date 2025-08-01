@@ -13,8 +13,6 @@ namespace GameCore
 
         public event Action<float> OnMakeupStarted;
 
-        public event Action OnMakeupFinished;
-
         public float MakeupDuration => _makeupDuration;
 
         [SerializeField]
@@ -41,6 +39,10 @@ namespace GameCore
         [SerializeField]
         private float _moveDuration = 0.5f;
 
+        private Vector3 _defaultPos;
+
+        private Vector3 _defaultRot = Vector3.zero;
+
         private float _colorHalfWidth;
 
         private float _colorHalfDuration;
@@ -55,6 +57,8 @@ namespace GameCore
 
         private void Start()
         {
+            _defaultPos = transform.position;
+
             _collider = GetComponent<Collider2D>();
 
             _makeupDuration = _makeupWobbleDuration * _wobbleCount;
@@ -101,7 +105,8 @@ namespace GameCore
 
             sequence
                 .Append(wobble)
-                .OnComplete(() => OnMakeupFinished?.Invoke());
+                .Append(transform.DOMove(_defaultPos, _moveDuration))
+                .Join(transform.DORotate(_defaultRot, _moveDuration));
 
             sequence.Play();
         }

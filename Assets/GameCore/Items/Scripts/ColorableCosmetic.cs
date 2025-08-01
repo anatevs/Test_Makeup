@@ -30,7 +30,7 @@ namespace GameCore
 
         public virtual void Apply(int id)
         {
-            OnFaceIntersected(id);
+            OnFaceIntersected?.Invoke(id);
         }
 
         public virtual void Select(int id, Vector2 pos)

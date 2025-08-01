@@ -5073,7 +5073,7 @@ MonoBehaviour:
   _colorWobbleWidth: 40
   _colorWobbleDuration: 0.2
   _makeupWobbleWidth: 100
-  _makeupWobbleDuration: 0.3
+  _makeupWobbleDuration: 1
   _wobbleCount: 3
   _moveDuration: 0.5
 --- !u!61 &2047536425

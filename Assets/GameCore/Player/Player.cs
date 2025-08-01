@@ -6,13 +6,7 @@ namespace GameCore
     {
         private PlayerInputController _input;
 
-        private int _eyeShadowId;
-
-        private int _lipstickId;
-
-        private int _blushId;
-
-        private int _skinId;
+        private MakeupData _makeupData;
 
         private Collider2D _currentHanded;
 
@@ -22,12 +16,42 @@ namespace GameCore
 
         public void SetEyeShadow(int id)
         {
-            _eyeShadowId = id;
+            _makeupData.EyeShadowId = id;
+
+            ClearCurrentHanded();
+        }
+
+        public void SetLipstick(int id)
+        {
+            _makeupData.LipstickId = id;
+
+            ClearCurrentHanded();
+        }
+
+        public void SetBlush(int id)
+        {
+            _makeupData.BlushId = id;
+
+            ClearCurrentHanded();
+        }
+
+        public void SetSkin(int id)
+        {
+            _makeupData.SkinId = id;
+
+            ClearCurrentHanded();
         }
 
         public void SetCurrentHanded(Collider2D current)
         {
             _currentHanded = current;
+        }
+
+        public void ClearCurrentHanded()
+        {
+            _isDragging = false;
+
+            SetCurrentHanded(null);
         }
 
         private void Awake()
@@ -79,5 +103,16 @@ namespace GameCore
                 _isDragging = false;
             }
         }
+    }
+
+    public struct MakeupData
+    {
+        public int EyeShadowId;
+
+        public int LipstickId;
+
+        public int BlushId;
+
+        public int SkinId;
     }
 }
