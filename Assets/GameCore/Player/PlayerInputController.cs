@@ -7,15 +7,13 @@ namespace GameCore
     public sealed class PlayerInputController :
         IDisposable
     {
-        public event Action<Vector2> OnTap;
+        public event Action<Vector3> OnTapScreen;
 
-        public event Action<Vector2> OnDrag;
+        public event Action<Vector3> OnDragScreen;
 
-        public event Action<Vector2> OnDrop;
+        public event Action<Vector3> OnDropScreen;
 
         private GameControls _controls;
-
-        private Camera _camera;
 
         public PlayerInputController()
         {
@@ -24,8 +22,6 @@ namespace GameCore
 
         public void Init()
         {
-            _camera = Camera.main;
-
             _controls = new GameControls();
 
             _controls.Enable();
@@ -50,24 +46,22 @@ namespace GameCore
 
         private void Tap(InputAction.CallbackContext context)
         {
-            OnTap?.Invoke(GetPointerPosition(context));
+            OnTapScreen?.Invoke(GetPointerScreenPosition(context));
         }
 
         private void Drag(InputAction.CallbackContext context)
         {
-            OnDrag?.Invoke(GetPointerPosition(context));
+            OnDragScreen?.Invoke(GetPointerScreenPosition(context));
         }
 
         private void Drop(InputAction.CallbackContext context)
         {
-            OnDrop?.Invoke(GetPointerPosition(context));
+            OnDropScreen?.Invoke(GetPointerScreenPosition(context));
         }
 
-        private Vector2 GetPointerPosition(InputAction.CallbackContext context)
+        private Vector3 GetPointerScreenPosition(InputAction.CallbackContext context)
         {
-            var clickPositionScreen = context.ReadValue<Vector2>();
-
-            return _camera.ScreenToWorldPoint(clickPositionScreen);
+            return context.ReadValue<Vector2>();
         }
     }
 }

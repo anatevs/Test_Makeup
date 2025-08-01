@@ -1,11 +1,16 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
+using System;
 
 namespace GameCore
 {
+    [RequireComponent(typeof(Collider2D))]
     public class Brush : MonoBehaviour
     {
+        public event Action<Collider2D> OnReady;
+
+        public event Action<Collider2D> OnTriggered;
+
         [SerializeField]
         private Vector3 _atHandRotation = new(0, 0, 10);
 
@@ -13,53 +18,98 @@ namespace GameCore
         private float _toHandDuration = 0.5f;
 
         [SerializeField]
-        private float _wobbleWidth = 20;
+        private float _colorWobbleWidth = 20;
 
         [SerializeField]
-        private float _wobbleDuration = 2f;
+        private float _colorWobbleDuration = 2f;
+
+        [SerializeField]
+        private float _makeupWobbleWidth = 20;
+
+        [SerializeField]
+        private float _makeupWobbleDuration = 2f;
 
         [SerializeField]
         private int _wobbleCount = 3;
 
-        private bool _isInteractable = false;
+        [SerializeField]
+        private float _moveDuration = 0.5f;
 
-        private float _wobbleHalfWidth;
+        private float _colorHalfWidth;
 
-        private float _wobbleHalfDuration;
+        private float _colorHalfDuration;
+
+        private float _makeupHalfWidth;
+
+        private float _makeupHalfDuration;
+
+        private Collider2D _collider;
 
         private void Start()
         {
-            _wobbleHalfWidth = _wobbleWidth / 2;
-            _wobbleHalfDuration = _wobbleDuration / 2;
+            _collider = GetComponent<Collider2D>();
+
+            _colorHalfWidth = _colorWobbleWidth / 2;
+            _colorHalfDuration = _colorWobbleDuration / 2;
+
+            _makeupHalfWidth = _makeupWobbleWidth / 2;
+            _makeupHalfDuration = _makeupWobbleDuration / 2;
         }
 
-        public void ColorBrush(Vector3 pos)
+        public void ColorBrush(Vector3 colorPos, Vector3 endPosition)
         {
-            Sequence wobble = DOTween.Sequence().Pause();
-
-            wobble.Append(transform.DOMoveX(transform.position.x + _wobbleHalfWidth, _wobbleHalfDuration));
-
-            for (int i = 0; i < _wobbleCount - 1; i++)
-            {
-                wobble.Append(transform.DOMoveX(transform.position.x - _wobbleWidth, _wobbleDuration));
-                wobble.Append(transform.DOMoveX(transform.position.x + _wobbleWidth, _wobbleDuration));
-            }
-
-            wobble.Append(transform.DOMoveX(transform.position.x - _wobbleHalfWidth, _wobbleHalfDuration));
-
-            Sequence sequence = DOTween.Sequence().Pause();
+            var sequence = DOTween.Sequence();
 
             sequence
                 .Append(transform.DORotate(_atHandRotation, _toHandDuration))
+                .Join(transform.DOMove(colorPos, _moveDuration));
+
+            var wobble = Wobble(colorPos.x, _colorWobbleWidth, _colorWobbleDuration, _colorHalfWidth, _colorHalfDuration);
+
+            sequence
                 .Append(wobble)
-                ;
+                .Append(transform.DOMove(endPosition, _moveDuration))
+                .OnComplete(() => OnReady?.Invoke(_collider));
 
             sequence.Play();
         }
 
-        private void SetInteractable(bool isInteractable)
+        public void MakeEyeshadow(Vector3 eyePoint)
         {
-            _isInteractable = isInteractable;
+            var sequence = DOTween.Sequence().Pause();
+
+            sequence
+                .Append(transform.DOMove(eyePoint, _moveDuration));
+
+
+            var wobble = Wobble(eyePoint.x, _makeupWobbleWidth, _makeupWobbleDuration, _makeupHalfWidth, _makeupHalfDuration);
+
+            sequence
+                .Append(wobble);
+
+            sequence.Play();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            OnTriggered?.Invoke(collision);
+        }
+
+        private Sequence Wobble(float xCenter, float width, float duration, float halfWidth, float halfDuration)
+        {
+            var wobble = DOTween.Sequence().Pause();
+
+            wobble.Append(transform.DOMoveX(xCenter + halfWidth, halfDuration));
+
+            for (int i = 0; i < _wobbleCount - 1; i++)
+            {
+                wobble.Append(transform.DOMoveX(xCenter - width, duration));
+                wobble.Append(transform.DOMoveX(xCenter + width, duration));
+            }
+
+            wobble.Append(transform.DOMoveX(xCenter, halfDuration));
+
+            return wobble;
         }
     }
 }

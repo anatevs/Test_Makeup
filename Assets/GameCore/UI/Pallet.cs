@@ -14,6 +14,8 @@ namespace GameCore
 
         private readonly List<Button> _buttons = new();
 
+        private bool _isInteractable = true;
+
         public void AddButton(Sprite sprite, int id)
         {
             var buttonInstance = Instantiate(_palletButton, transform);
@@ -29,7 +31,10 @@ namespace GameCore
 
         private void Click(int id, Vector2 pos)
         {
-            OnButtonClicked?.Invoke(id, pos);
+            if (_isInteractable)
+            {
+                OnButtonClicked?.Invoke(id, pos);
+            }
         }
 
         private void OnDisable()
