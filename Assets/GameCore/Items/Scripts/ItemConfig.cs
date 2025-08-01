@@ -7,7 +7,7 @@ namespace GameCore
         menuName = "Configs/Items")]
     public class ItemConfig : ScriptableObject
     {
-        public int Count => _itemsData.Length;
+        public int MaxId => _itemsData.Length;
 
         [SerializeField]
         private Sprite _baseItemImage;
@@ -15,9 +15,19 @@ namespace GameCore
         [SerializeField]
         private ItemData[] _itemsData;
 
-        public Sprite GetSprite(int id)
+        public Sprite GetColoredItemSprite(int id)
         {
-            return _itemsData[id].ItemImage;
+            return _itemsData[id].ColoredItemImage;
+        }
+
+        public Sprite GetPalletSprite(int id)
+        {
+            return _itemsData[id].PalletImage;
+        }
+
+        public Sprite GetFaceSprite(int id)
+        {
+            return _itemsData[id].FaceImage;
         }
 
         public string GetName(int id)
@@ -32,7 +42,7 @@ namespace GameCore
     {
         public string Name;
 
-        public Sprite ItemImage;
+        public Sprite ColoredItemImage;
 
         public Sprite PalletImage;
 
