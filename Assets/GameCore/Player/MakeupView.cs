@@ -33,10 +33,12 @@ namespace GameCore
             {
                 _tempImage.sprite = image.sprite;
                 _tempImgColor.a = 1;
+                _tempImage.color = image.color;
             }
 
             var color = image.color;
             color.a = 0;
+            image.color = color;
             image.sprite = newSprite;
 
             _tempImage.DOFade(0, duration);
