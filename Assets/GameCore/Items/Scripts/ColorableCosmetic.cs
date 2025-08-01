@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public abstract class ColorableItem : MonoBehaviour
+    public abstract class ColorableCosmetic : MonoBehaviour
     {
         public event Action<Collider2D> OnReady;
 
         public event Action<int> OnFaceIntersected;
+
+        public event Action<float, Sprite> OnMakeupStarted;
 
         [SerializeField]
         protected ItemConfig _config;
@@ -57,6 +59,13 @@ namespace GameCore
             {
                 Apply(_currentSelected);
             }
+        }
+
+        protected void DoMakeup(float duration)
+        {
+            var sprite = _config.GetFaceSprite(_currentSelected);
+
+            OnMakeupStarted?.Invoke(duration, sprite);
         }
 
         private void Start()

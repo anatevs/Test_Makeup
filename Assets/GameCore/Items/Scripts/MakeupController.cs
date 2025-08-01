@@ -9,18 +9,18 @@ namespace GameCore
         private Player _player;
 
         [SerializeField]
-        private EyeshadowItem _eyeshadow;
+        private Eyeshadow _eyeshadow;
 
-        private void Start()
-        {
-            
-        }
+        [SerializeField]
+        private MakeupView _view;
 
         private void OnEnable()
         {
             _eyeshadow.OnReady += _player.SetCurrentHanded;
 
             _eyeshadow.OnFaceIntersected += _player.SetEyeShadow;
+
+            _eyeshadow.OnMakeupStarted += _view.MakeEyeshadow;
         }
 
         private void OnDisable()
@@ -28,6 +28,8 @@ namespace GameCore
             _eyeshadow.OnReady -= _player.SetCurrentHanded;
 
             _eyeshadow.OnFaceIntersected -= _player.SetEyeShadow;
+
+            _eyeshadow.OnMakeupStarted -= _view.MakeEyeshadow;
         }
     }
 }

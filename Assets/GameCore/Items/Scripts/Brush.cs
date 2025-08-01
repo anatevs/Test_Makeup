@@ -11,6 +11,12 @@ namespace GameCore
 
         public event Action<Collider2D> OnTriggered;
 
+        public event Action<float> OnMakeupStarted;
+
+        public event Action OnMakeupFinished;
+
+        public float MakeupDuration => _makeupDuration;
+
         [SerializeField]
         private Vector3 _atHandRotation = new(0, 0, 10);
 
@@ -45,9 +51,13 @@ namespace GameCore
 
         private Collider2D _collider;
 
+        private float _makeupDuration;
+
         private void Start()
         {
             _collider = GetComponent<Collider2D>();
+
+            _makeupDuration = _makeupWobbleDuration * _wobbleCount;
 
             _colorHalfWidth = _colorWobbleWidth / 2;
             _colorHalfDuration = _colorWobbleDuration / 2;
@@ -64,7 +74,9 @@ namespace GameCore
                 .Append(transform.DORotate(_atHandRotation, _toHandDuration))
                 .Join(transform.DOMove(colorPos, _moveDuration));
 
-            var wobble = Wobble(colorPos.x, _colorWobbleWidth, _colorWobbleDuration, _colorHalfWidth, _colorHalfDuration);
+            var wobble = Wobble(colorPos.x,
+                _colorWobbleWidth, _colorWobbleDuration,
+                _colorHalfWidth, _colorHalfDuration);
 
             sequence
                 .Append(wobble)
@@ -79,13 +91,17 @@ namespace GameCore
             var sequence = DOTween.Sequence().Pause();
 
             sequence
-                .Append(transform.DOMove(eyePoint, _moveDuration));
+                .Append(transform.DOMove(eyePoint, _moveDuration))
+                .AppendCallback(() => OnMakeupStarted?.Invoke(_makeupDuration));
 
 
-            var wobble = Wobble(eyePoint.x, _makeupWobbleWidth, _makeupWobbleDuration, _makeupHalfWidth, _makeupHalfDuration);
+            var wobble = Wobble(eyePoint.x, 
+                _makeupWobbleWidth, _makeupWobbleDuration,
+                _makeupHalfWidth, _makeupHalfDuration);
 
             sequence
-                .Append(wobble);
+                .Append(wobble)
+                .OnComplete(() => OnMakeupFinished?.Invoke());
 
             sequence.Play();
         }

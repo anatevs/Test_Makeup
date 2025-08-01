@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public class EyeshadowItem : ColorableItem
+    public class Eyeshadow : ColorableCosmetic
     {
         [SerializeField]
         private Brush _brush;
@@ -32,6 +32,8 @@ namespace GameCore
             _brush.OnReady += MakeOnReady;
 
             _brush.OnTriggered += CheckCollision;
+
+            _brush.OnMakeupStarted += DoMakeup;
         }
 
         private void OnDisable()
@@ -39,6 +41,8 @@ namespace GameCore
             _brush.OnReady -= MakeOnReady;
 
             _brush.OnTriggered -= CheckCollision;
+
+            _brush.OnMakeupStarted -= DoMakeup;
         }
     }
 }
