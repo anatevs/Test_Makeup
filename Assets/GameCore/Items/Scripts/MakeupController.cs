@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace GameCore
 {
@@ -13,6 +13,9 @@ namespace GameCore
 
         [SerializeField]
         private LipstickMenu _lipstick;
+
+        [SerializeField]
+        private Button _sponge;
 
         [SerializeField]
         private MakeupView _view;
@@ -32,6 +35,9 @@ namespace GameCore
             _lipstick.OnFaceIntersected += _player.SetEyeShadow;
 
             _lipstick.OnMakeupStarted += _view.ApplyLipstick;
+
+
+            _sponge.onClick.AddListener(_view.ClearMakeup);
         }
 
         private void OnDisable()
@@ -48,6 +54,9 @@ namespace GameCore
             _lipstick.OnFaceIntersected -= _player.SetEyeShadow;
 
             _lipstick.OnMakeupStarted -= _view.ApplyLipstick;
+
+
+            _sponge.onClick.RemoveAllListeners();
         }
     }
 }

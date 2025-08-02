@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 391724668}
   - component: {fileID: 391724667}
   m_Layer: 5
-  m_Name: Loofah
+  m_Name: Sponge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1849,6 +1849,7 @@ MonoBehaviour:
   _player: {fileID: 1534369156}
   _eyeshadow: {fileID: 822976224}
   _lipstick: {fileID: 2139010571}
+  _sponge: {fileID: 391724667}
   _view: {fileID: 1311160394}
 --- !u!1 &950329578
 GameObject:
@@ -2581,8 +2582,8 @@ RectTransform:
   m_LocalScale: {x: 1.23, y: 1.23, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 384816098}
   - {fileID: 790276573}
+  - {fileID: 384816098}
   - {fileID: 1745225958}
   - {fileID: 458894193}
   - {fileID: 1932199520}
@@ -2721,6 +2722,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eyeShadowImage: {fileID: 458894194}
   _lipsImage: {fileID: 1745225959}
+  _blushImage: {fileID: 1932199521}
+  _skinImage: {fileID: 384816099}
   _tempImage: {fileID: 790276574}
 --- !u!1 &1328300645
 GameObject:
@@ -3370,8 +3373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _atHandRotation: {x: 0, y: 0, z: 10}
   _toHandDuration: 0.5
-  _makeupWobbleWidth: 20
-  _makeupWobbleDuration: 0.4
+  _makeupWobbleWidth: 40
+  _makeupWobbleDuration: 0.3
   _wobbleCount: 2
   _moveDuration: 0.5
   _view: {fileID: 1644672896}
