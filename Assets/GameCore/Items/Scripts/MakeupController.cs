@@ -15,6 +15,9 @@ namespace GameCore
         private LipstickMenu _lipstick;
 
         [SerializeField]
+        private CreamMenu _cream;
+
+        [SerializeField]
         private Button _sponge;
 
         [SerializeField]
@@ -32,9 +35,16 @@ namespace GameCore
 
             _lipstick.OnReady += _player.SetCurrentHanded;
 
-            _lipstick.OnFaceIntersected += _player.SetEyeShadow;
+            _lipstick.OnFaceIntersected += _player.SetLipstick;
 
             _lipstick.OnMakeupStarted += _view.ApplyLipstick;
+
+
+            _cream.OnReady += _player.SetCurrentHanded;
+
+            _cream.OnFaceIntersected += _player.SetSkin;
+
+            _cream.OnMaskingStarted += _view.RemoveAkne;
 
 
             _sponge.onClick.AddListener(_view.ClearMakeup);
@@ -51,9 +61,16 @@ namespace GameCore
 
             _lipstick.OnReady -= _player.SetCurrentHanded;
 
-            _lipstick.OnFaceIntersected -= _player.SetEyeShadow;
+            _lipstick.OnFaceIntersected -= _player.SetLipstick;
 
             _lipstick.OnMakeupStarted -= _view.ApplyLipstick;
+
+
+            _cream.OnReady -= _player.SetCurrentHanded;
+
+            _cream.OnFaceIntersected -= _player.SetSkin;
+
+            _cream.OnMaskingStarted -= _view.RemoveAkne;
 
 
             _sponge.onClick.RemoveAllListeners();

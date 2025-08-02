@@ -5,6 +5,7 @@ using Sequence = DG.Tweening.Sequence;
 
 namespace GameCore
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public abstract class ColoredItem : MonoBehaviour
     {
         public event Action<Collider2D> OnReady;
@@ -69,15 +70,15 @@ namespace GameCore
             sequence.Play();
         }
 
-        public void ApplyItem(Vector3 eyePoint)
+        public void ApplyItem(Vector3 applyPoint)
         {
             var sequence = DOTween.Sequence().Pause();
 
             sequence
-                .Append(transform.DOMove(eyePoint, _moveDuration))
+                .Append(transform.DOMove(applyPoint, _moveDuration))
                 .AppendCallback(() => OnMakeupStarted?.Invoke(_makeupDuration));
 
-            var wobble = Wobble(eyePoint.x,
+            var wobble = Wobble(applyPoint.x,
                 _makeupWobbleWidth, _makeupWobbleDuration,
                 _makeupHalfWidth, _makeupHalfDuration);
 

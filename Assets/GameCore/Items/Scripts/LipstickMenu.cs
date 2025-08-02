@@ -4,14 +4,11 @@ namespace GameCore
 {
     public class LipstickMenu : ColorableCosmeticMenu
     {
-        [SerializeField]
         private Lipstick _lipstick;
 
-        public override void Apply(int id)
+        private void Awake()
         {
-            base.Apply(id);
-
-            _lipstick.ApplyItem(_makeupPoint.position);
+            _lipstick = _item as Lipstick;
         }
 
         public override void Select(int id, Vector2 pos)
@@ -19,26 +16,6 @@ namespace GameCore
             base.Select(id, pos);
 
             _lipstick.SetViewSprite(_config.GetPalletSprite(id));
-
-            _lipstick.PrepareItem(pos, _readyPoint.position);
-        }
-
-        private void OnEnable()
-        {
-            _lipstick.OnReady += MakeOnReady;
-
-            _lipstick.OnTriggered += CheckCollision;
-
-            _lipstick.OnMakeupStarted += DoMakeup;
-        }
-
-        private void OnDisable()
-        {
-            _lipstick.OnReady -= MakeOnReady;
-
-            _lipstick.OnTriggered -= CheckCollision;
-
-            _lipstick.OnMakeupStarted -= DoMakeup;
         }
     }
 }

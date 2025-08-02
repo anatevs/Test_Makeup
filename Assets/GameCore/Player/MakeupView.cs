@@ -20,7 +20,7 @@ namespace GameCore
         private Image _blushImage;
 
         [SerializeField]
-        private Image _skinImage;
+        private Image _akneImage;
 
         [SerializeField]
         private Image _tempImage;
@@ -37,7 +37,7 @@ namespace GameCore
             _makeupImages.Add(_eyeShadowImage);
             _makeupImages.Add(_lipsImage);
             _makeupImages.Add(_blushImage);
-            _makeupImages.Add(_skinImage);
+            _makeupImages.Add(_akneImage);
 
 
             _defaultSprites = new Sprite[_makeupImages.Count];
@@ -56,6 +56,12 @@ namespace GameCore
         public void ApplyLipstick(float duration, Sprite newSprite)
         {
             SetMakeupSprite(_lipsImage, newSprite, duration);
+        }
+
+        public void RemoveAkne(float duration)
+        {
+            _akneImage.DOFade(0, duration)
+                .OnComplete(() => OnMakeupDone?.Invoke());
         }
 
         public void ClearMakeup()

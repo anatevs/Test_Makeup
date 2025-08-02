@@ -522,6 +522,9 @@ GameObject:
   - component: {fileID: 304225110}
   - component: {fileID: 304225109}
   - component: {fileID: 304225108}
+  - component: {fileID: 304225114}
+  - component: {fileID: 304225113}
+  - component: {fileID: 304225112}
   m_Layer: 5
   m_Name: Cream
   m_TagString: Untagged
@@ -631,6 +634,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304225106}
   m_CullTransparentMesh: 1
+--- !u!114 &304225112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304225106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f1c5454f9495546bd47c39d10ad780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item: {fileID: 304225113}
+  _config: {fileID: 0}
+  _pallet: {fileID: 0}
+  _readyPoint: {fileID: 1991402521}
+  _makeupPoint: {fileID: 1928396633}
+  _faceCollider: {fileID: 1311160390}
+--- !u!114 &304225113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304225106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b123520082698b478da71147e23686f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _atHandRotation: {x: 0, y: 0, z: 10}
+  _toHandDuration: 0.5
+  _makeupWobbleWidth: 100
+  _makeupWobbleDuration: 0.4
+  _wobbleCount: 3
+  _moveDuration: 0.5
+--- !u!61 &304225114
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304225106}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 161.7, y: 387.2}
+  m_EdgeRadius: 0
 --- !u!1 &384816097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,12 +1871,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed2d154cb3958c40bf66b5ebf02994b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 2047536426}
   _config: {fileID: 11400000, guid: 81ae6438ae7757b4bb69dec8720a9de3, type: 2}
   _pallet: {fileID: 1749819189}
   _readyPoint: {fileID: 1881111119}
   _makeupPoint: {fileID: 2129158913}
   _faceCollider: {fileID: 1311160390}
-  _brush: {fileID: 2047536426}
 --- !u!1 &843130259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1933,7 @@ MonoBehaviour:
   _player: {fileID: 1534369156}
   _eyeshadow: {fileID: 822976224}
   _lipstick: {fileID: 2139010571}
+  _cream: {fileID: 304225112}
   _sponge: {fileID: 391724667}
   _view: {fileID: 1311160394}
 --- !u!1 &950329578
@@ -2583,14 +2668,16 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 790276573}
-  - {fileID: 384816098}
-  - {fileID: 1745225958}
-  - {fileID: 458894193}
-  - {fileID: 1932199520}
   - {fileID: 1881111119}
+  - {fileID: 458894193}
   - {fileID: 2129158913}
-  - {fileID: 49866428}
+  - {fileID: 1745225958}
   - {fileID: 540704947}
+  - {fileID: 1932199520}
+  - {fileID: 49866428}
+  - {fileID: 384816098}
+  - {fileID: 1991402521}
+  - {fileID: 1928396633}
   m_Father: {fileID: 843130260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2723,7 +2810,7 @@ MonoBehaviour:
   _eyeShadowImage: {fileID: 458894194}
   _lipsImage: {fileID: 1745225959}
   _blushImage: {fileID: 1932199521}
-  _skinImage: {fileID: 384816099}
+  _akneImage: {fileID: 384816099}
   _tempImage: {fileID: 790276574}
 --- !u!1 &1328300645
 GameObject:
@@ -3878,6 +3965,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894832004}
   m_CullTransparentMesh: 1
+--- !u!1 &1928396632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928396633}
+  m_Layer: 5
+  m_Name: CreamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1928396633
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928396632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1311160389}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1225}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1932199519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4132,6 +4254,41 @@ MonoBehaviour:
   _center: {fileID: 822976223}
   _right: {fileID: 2139010570}
   _changeDuration: 0.4
+--- !u!1 &1991402520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991402521}
+  m_Layer: 5
+  m_Name: CreamReadyPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1991402521
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991402520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1311160389}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -306, y: 1267}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2007498491
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,12 +4748,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9398d7cf7f1fc164196d3ade3425aa6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 1745979403}
   _config: {fileID: 11400000, guid: 767826db5ebdfdf46b222ec956fae0ee, type: 2}
   _pallet: {fileID: 1398522040}
   _readyPoint: {fileID: 1881111119}
   _makeupPoint: {fileID: 540704947}
   _faceCollider: {fileID: 1311160390}
-  _lipstick: {fileID: 1745979403}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

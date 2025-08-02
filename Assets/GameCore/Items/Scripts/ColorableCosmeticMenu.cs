@@ -12,6 +12,9 @@ namespace GameCore
         public event Action<float, Sprite> OnMakeupStarted;
 
         [SerializeField]
+        protected ColoredItem _item;
+
+        [SerializeField]
         protected ItemConfig _config;
 
         [SerializeField]
@@ -31,11 +34,15 @@ namespace GameCore
         public virtual void Apply(int id)
         {
             OnFaceIntersected?.Invoke(id);
+
+            _item.ApplyItem(_makeupPoint.position);
         }
 
         public virtual void Select(int id, Vector2 pos)
         {
             _currentSelected = id;
+
+            _item.PrepareItem(pos, _readyPoint.position);
         }
 
         protected virtual void InitPallet()
@@ -61,7 +68,7 @@ namespace GameCore
             }
         }
 
-        protected void DoMakeup(float duration)
+        protected virtual void DoMakeup(float duration)
         {
             var sprite = _config.GetFaceSprite(_currentSelected);
 
@@ -73,9 +80,27 @@ namespace GameCore
             InitPallet();
         }
 
-        private void OnDisable()
+        private void OnEnable()
         {
-            _pallet.OnButtonClicked -= Select;
+            _item.OnReady += MakeOnReady;
+
+            _item.OnTriggered += CheckCollision;
+
+            _item.OnMakeupStarted += DoMakeup;
+        }
+
+        protected virtual void OnDisable()
+        {
+            _item.OnReady -= MakeOnReady;
+
+            _item.OnTriggered -= CheckCollision;
+
+            _item.OnMakeupStarted -= DoMakeup;
+
+            if (_pallet != null)
+            {
+                _pallet.OnButtonClicked -= Select;
+            }
         }
     }
 }
