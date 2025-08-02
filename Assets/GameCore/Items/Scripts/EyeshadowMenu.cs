@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public class EyeshadowMenu : ColorableCosmetic
+    public class EyeshadowMenu : ColorableCosmeticMenu
     {
         [SerializeField]
         private Brush _brush;
@@ -14,14 +14,16 @@ namespace GameCore
         {
             base.Apply(id);
 
-            _brush.MakeEyeshadow(_makeupPoint.position);
+            //_brush.MakeEyeshadow(_makeupPoint.position);
+            _brush.ApplyItem(_makeupPoint.position);
         }
 
         public override void Select(int id, Vector2 pos)
         {
             base.Select(id, pos);
 
-            _brush.PrepareBrush(pos, _readyPoint.position);
+            //_brush.PrepareBrush(pos, _readyPoint.position);
+            _brush.PrepareItem(pos, _readyPoint.position);
         }
 
         private void OnEnable()

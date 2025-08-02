@@ -1,7 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
 
 namespace GameCore
 {
@@ -25,7 +24,7 @@ namespace GameCore
             _viewShift = transform.position - _view.transform.position;
         }
 
-        protected override Sequence TakeItem(Vector3 colorPos)
+        protected override void TakeItem(Vector3 colorPos, Sequence sequence)
         {
             gameObject.SetActive(true);
             transform.position = colorPos + _viewShift;
@@ -34,7 +33,7 @@ namespace GameCore
             _hidePalletImage.transform.position = colorPos;
             _hidePalletImage.gameObject.SetActive(true);
 
-            return base.TakeItem(colorPos);
+            base.TakeItem(colorPos, sequence);
         }
 
         protected override Sequence ClearItem()

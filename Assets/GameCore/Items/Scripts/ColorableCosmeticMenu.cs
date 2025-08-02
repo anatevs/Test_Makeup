@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public abstract class ColorableCosmetic : MonoBehaviour
+    public abstract class ColorableCosmeticMenu : MonoBehaviour
     {
         public event Action<Collider2D> OnReady;
 

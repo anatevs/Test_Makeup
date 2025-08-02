@@ -2,7 +2,7 @@
 
 namespace GameCore
 {
-    public class LipstickMenu : ColorableCosmetic
+    public class LipstickMenu : ColorableCosmeticMenu
     {
         [SerializeField]
         private Lipstick _lipstick;

@@ -43,7 +43,7 @@ namespace GameCore
 
         protected float _makeupDuration;
 
-        private void Start()
+        protected virtual void Start()
         {
             _defaultPos = transform.position;
 
@@ -59,9 +59,8 @@ namespace GameCore
         {
             var sequence = DOTween.Sequence();
 
-            sequence.Append(TakeItem(colorPos));
-
-            sequence.Append(ColorItem(colorPos));
+            TakeItem(colorPos, sequence);
+            ColorItem(colorPos, sequence);
 
             sequence
                 .Append(transform.DOMove(endPosition, _moveDuration))
@@ -90,28 +89,14 @@ namespace GameCore
             sequence.Play();
         }
 
-        protected virtual Sequence TakeItem(Vector3 colorPos)
+        protected virtual void TakeItem(Vector3 colorPos, Sequence sequence)
         {
-            var sequence = DOTween.Sequence().Pause();
-
             sequence
                 .Append(transform.DORotate(_atHandRotation, _toHandDuration));
-
-            return sequence;
         }
 
-        protected virtual Sequence ColorItem(Vector3 colorPos)
+        protected virtual void ColorItem(Vector3 colorPos, Sequence sequence)
         {
-            var sequence = DOTween.Sequence();
-
-            //sequence
-            //    .Join(transform.DOMove(colorPos, _moveDuration));
-
-            //var wobble = Wobble(colorPos.x,
-            //    _colorWobbleWidth, _colorWobbleDuration,
-            //    _colorHalfWidth, _colorHalfDuration);
-
-            return sequence;
         }
 
         protected virtual Sequence ClearItem()

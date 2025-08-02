@@ -1792,7 +1792,7 @@ MonoBehaviour:
   _readyPoint: {fileID: 1881111119}
   _makeupPoint: {fileID: 2129158913}
   _faceCollider: {fileID: 1311160390}
-  _brush: {fileID: 2047536424}
+  _brush: {fileID: 2047536426}
 --- !u!1 &843130259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,8 +4291,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2047536423}
-  - component: {fileID: 2047536424}
   - component: {fileID: 2047536425}
+  - component: {fileID: 2047536426}
   m_Layer: 5
   m_Name: Brush
   m_TagString: Untagged
@@ -4320,26 +4320,6 @@ RectTransform:
   m_AnchoredPosition: {x: 294, y: 381}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2047536424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047536422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 417fefde32411d446a927849a18fe031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _atHandRotation: {x: 0, y: 0, z: 10}
-  _toHandDuration: 0.5
-  _colorWobbleWidth: 40
-  _colorWobbleDuration: 0.2
-  _makeupWobbleWidth: 100
-  _makeupWobbleDuration: 0.3
-  _wobbleCount: 3
-  _moveDuration: 0.5
 --- !u!61 &2047536425
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4385,6 +4365,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 88, y: 654.17}
   m_EdgeRadius: 0
+--- !u!114 &2047536426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047536422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c67dcbfa68ac994facaa051477d97f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _atHandRotation: {x: 0, y: 0, z: 10}
+  _toHandDuration: 0.5
+  _makeupWobbleWidth: 100
+  _makeupWobbleDuration: 0.3
+  _wobbleCount: 3
+  _moveDuration: 0.5
+  _colorWobbleWidth: 40
+  _colorWobbleDuration: 0.2
 --- !u!1 &2085812666
 GameObject:
   m_ObjectHideFlags: 0
