@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace GameCore
 {
-    public class Lipstick : ColoredItem
+    public class Lipstick : MakeupTool
     {
         [SerializeField]
         private Image _view;

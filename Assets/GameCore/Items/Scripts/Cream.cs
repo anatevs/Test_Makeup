@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace GameCore
 {
-    public class Cream : ColoredItem
+    public class Cream : MakeupTool
     {
         public event Action<int, Vector2> OnButtonClicked;
 

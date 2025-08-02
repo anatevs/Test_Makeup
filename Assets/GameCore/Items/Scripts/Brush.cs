@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public class Brush : ColoredItem
+    public class Brush : MakeupTool
     {
         [SerializeField]
         private float _colorWobbleWidth = 20;
@@ -19,6 +19,8 @@ namespace GameCore
         protected override void Start()
         {
             base.Start();
+
+            _colorWobbleWidth = CameraScaler.ScaleWithCamera(_colorWobbleWidth);
 
             _colorHalfWidth = _colorWobbleWidth / 2;
             _colorHalfDuration = _colorWobbleDuration / 2;

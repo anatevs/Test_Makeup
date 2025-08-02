@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace GameCore
 {
-    [CreateAssetMenu(fileName = "ItemsConfig",
-        menuName = "Configs/Items")]
+    [CreateAssetMenu(fileName = "MakeupItemConfig",
+        menuName = "Configs/Makeup")]
     public class ItemConfig : ScriptableObject
     {
         public int MaxId => _itemsData.Length;

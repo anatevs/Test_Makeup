@@ -2,7 +2,7 @@
 
 namespace GameCore
 {
-    public class LipstickMenu : ColorableCosmeticMenu
+    public class LipstickMenu : MakeupItemMenu
     {
         private Lipstick _lipstick;
 

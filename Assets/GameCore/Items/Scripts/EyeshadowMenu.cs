@@ -1,6 +1,6 @@
 ﻿namespace GameCore
 {
-    public class EyeshadowMenu : ColorableCosmeticMenu
+    public class EyeshadowMenu : MakeupItemMenu
     {
         private Brush _brush;
 

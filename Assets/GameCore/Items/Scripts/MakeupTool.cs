@@ -6,7 +6,7 @@ using Sequence = DG.Tweening.Sequence;
 namespace GameCore
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    public abstract class ColoredItem : MonoBehaviour
+    public abstract class MakeupTool : MonoBehaviour
     {
         public event Action<Collider2D> OnReady;
 
@@ -51,6 +51,8 @@ namespace GameCore
             _collider = GetComponent<Collider2D>();
 
             _makeupDuration = _makeupWobbleDuration * _wobbleCount;
+
+            _makeupWobbleWidth = CameraScaler.ScaleWithCamera(_makeupWobbleWidth);
 
             _makeupHalfWidth = _makeupWobbleWidth / 2;
             _makeupHalfDuration = _makeupWobbleDuration / 2;

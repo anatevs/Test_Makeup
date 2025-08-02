@@ -2,7 +2,7 @@
 
 namespace GameCore
 {
-    public class CreamMenu : ColorableCosmeticMenu
+    public class CreamMenu : MakeupItemMenu
     {
         public event Action<float> OnMaskingStarted;
 

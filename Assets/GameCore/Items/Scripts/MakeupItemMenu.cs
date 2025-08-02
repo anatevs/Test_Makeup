@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public abstract class ColorableCosmeticMenu : MonoBehaviour
+    public abstract class MakeupItemMenu : MonoBehaviour
     {
         public event Action<Collider2D> OnReady;
 
@@ -12,7 +12,7 @@ namespace GameCore
         public event Action<float, Sprite> OnMakeupStarted;
 
         [SerializeField]
-        protected ColoredItem _item;
+        protected MakeupTool _item;
 
         [SerializeField]
         protected ItemConfig _config;
