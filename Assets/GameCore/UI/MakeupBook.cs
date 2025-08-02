@@ -88,10 +88,10 @@ namespace GameCore
                 change.transform.position.z
                 );
 
-            change.SetActive(true);
+            //change.SetActive(true);
 
-            current.transform.DOMoveX(currentTargetX, _changeDuration)
-                .OnComplete(() => current.SetActive(false));
+            current.transform.DOMoveX(currentTargetX, _changeDuration);
+                //.OnComplete(() => current.SetActive(false));
 
             change.transform.DOMoveX(_centerPosX, _changeDuration);
         }
