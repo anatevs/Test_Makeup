@@ -46,6 +46,8 @@ namespace GameCore
 
         protected virtual void Start()
         {
+            _defaultPos = transform.position;
+
             _collider = GetComponent<Collider2D>();
 
             _makeupDuration = _makeupWobbleDuration * _wobbleCount;
