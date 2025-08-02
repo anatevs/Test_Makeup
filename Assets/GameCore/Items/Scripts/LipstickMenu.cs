@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 namespace GameCore
 {
@@ -7,9 +6,6 @@ namespace GameCore
     {
         [SerializeField]
         private Lipstick _lipstick;
-
-        [SerializeField]
-        private Image _hidePalletImage;
 
         public override void Apply(int id)
         {
@@ -21,9 +17,6 @@ namespace GameCore
         public override void Select(int id, Vector2 pos)
         {
             base.Select(id, pos);
-
-            _hidePalletImage.transform.position = pos;
-            _hidePalletImage.gameObject.SetActive(true);
 
             _lipstick.SetViewSprite(_config.GetPalletSprite(id));
 

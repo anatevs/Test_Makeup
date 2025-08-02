@@ -114,6 +114,13 @@ namespace GameCore
             return sequence;
         }
 
+        protected virtual Sequence ClearItem()
+        {
+            var sequence = DOTween.Sequence().Pause();
+            
+            return sequence;
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             OnTriggered?.Invoke(collision);
