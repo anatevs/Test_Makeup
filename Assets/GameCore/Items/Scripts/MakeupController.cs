@@ -9,7 +9,10 @@ namespace GameCore
         private Player _player;
 
         [SerializeField]
-        private Eyeshadow _eyeshadow;
+        private EyeshadowMenu _eyeshadow;
+
+        [SerializeField]
+        private LipstickMenu _lipstick;
 
         [SerializeField]
         private MakeupView _view;
@@ -21,6 +24,14 @@ namespace GameCore
             _eyeshadow.OnFaceIntersected += _player.SetEyeShadow;
 
             _eyeshadow.OnMakeupStarted += _view.MakeEyeshadow;
+
+
+
+            _lipstick.OnReady += _player.SetCurrentHanded;
+
+            _lipstick.OnFaceIntersected += _player.SetEyeShadow;
+
+            _lipstick.OnMakeupStarted += _view.ApplyLipstick;
         }
 
         private void OnDisable()
@@ -30,6 +41,13 @@ namespace GameCore
             _eyeshadow.OnFaceIntersected -= _player.SetEyeShadow;
 
             _eyeshadow.OnMakeupStarted -= _view.MakeEyeshadow;
+
+
+            _lipstick.OnReady -= _player.SetCurrentHanded;
+
+            _lipstick.OnFaceIntersected -= _player.SetEyeShadow;
+
+            _lipstick.OnMakeupStarted -= _view.ApplyLipstick;
         }
     }
 }

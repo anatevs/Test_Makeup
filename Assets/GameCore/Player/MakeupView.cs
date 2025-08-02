@@ -13,6 +13,9 @@ namespace GameCore
         private Image _eyeShadowImage;
 
         [SerializeField]
+        private Image _lipsImage;
+
+        [SerializeField]
         private Image _tempImage;
 
         private Color _tempImgColor;
@@ -25,6 +28,11 @@ namespace GameCore
         public void MakeEyeshadow(float duration, Sprite newSprite)
         {
             SetMakeupSprite(_eyeShadowImage, newSprite, duration);
+        }
+
+        public void ApplyLipstick(float duration, Sprite newSprite)
+        {
+            SetMakeupSprite(_lipsImage, newSprite, duration);
         }
 
         private void SetMakeupSprite(Image image, Sprite newSprite, float duration)

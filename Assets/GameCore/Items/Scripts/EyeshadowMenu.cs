@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameCore
 {
-    public class Eyeshadow : ColorableCosmetic
+    public class EyeshadowMenu : ColorableCosmetic
     {
         [SerializeField]
         private Brush _brush;
@@ -21,10 +21,7 @@ namespace GameCore
         {
             base.Select(id, pos);
 
-            _brush.ColorBrush(pos, _readyPoint.position);
-
-
-            ///set pallet not interactable while coloring brush!!!!
+            _brush.PrepareBrush(pos, _readyPoint.position);
         }
 
         private void OnEnable()

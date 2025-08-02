@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using DG.Tweening;
+﻿using DG.Tweening;
 using System;
+using UnityEngine;
+using Sequence = DG.Tweening.Sequence;
 
 namespace GameCore
 {
-    [RequireComponent(typeof(Collider2D))]
-    public class Brush : MonoBehaviour
+    public abstract class ColoredItem : MonoBehaviour
     {
         public event Action<Collider2D> OnReady;
 
@@ -14,44 +14,34 @@ namespace GameCore
         public event Action<float> OnMakeupStarted;
 
         [SerializeField]
-        private Vector3 _atHandRotation = new(0, 0, 10);
+        protected Vector3 _atHandRotation = new(0, 0, 10);
 
         [SerializeField]
-        private float _toHandDuration = 0.5f;
+        protected float _toHandDuration = 0.5f;
 
         [SerializeField]
-        private float _colorWobbleWidth = 20;
+        protected float _makeupWobbleWidth = 20;
 
         [SerializeField]
-        private float _colorWobbleDuration = 2f;
+        protected float _makeupWobbleDuration = 2f;
 
         [SerializeField]
-        private float _makeupWobbleWidth = 20;
+        protected int _wobbleCount = 3;
 
         [SerializeField]
-        private float _makeupWobbleDuration = 2f;
+        protected float _moveDuration = 0.5f;
 
-        [SerializeField]
-        private int _wobbleCount = 3;
+        protected Vector3 _defaultPos;
 
-        [SerializeField]
-        private float _moveDuration = 0.5f;
+        protected Vector3 _defaultRot = Vector3.zero;
 
-        private Vector3 _defaultPos;
+        protected float _makeupHalfWidth;
 
-        private Vector3 _defaultRot = Vector3.zero;
+        protected float _makeupHalfDuration;
 
-        private float _colorHalfWidth;
+        protected Collider2D _collider;
 
-        private float _colorHalfDuration;
-
-        private float _makeupHalfWidth;
-
-        private float _makeupHalfDuration;
-
-        private Collider2D _collider;
-
-        private float _makeupDuration;
+        protected float _makeupDuration;
 
         private void Start()
         {
@@ -61,34 +51,26 @@ namespace GameCore
 
             _makeupDuration = _makeupWobbleDuration * _wobbleCount;
 
-            _colorHalfWidth = _colorWobbleWidth / 2;
-            _colorHalfDuration = _colorWobbleDuration / 2;
-
             _makeupHalfWidth = _makeupWobbleWidth / 2;
             _makeupHalfDuration = _makeupWobbleDuration / 2;
         }
 
-        public void PrepareBrush(Vector3 colorPos, Vector3 endPosition)
+        public void PrepareItem(Vector3 colorPos, Vector3 endPosition)
         {
             var sequence = DOTween.Sequence();
 
-            sequence
-                .Append(transform.DORotate(_atHandRotation, _toHandDuration))
-                .Join(transform.DOMove(colorPos, _moveDuration));
+            sequence.Append(TakeItem(colorPos));
 
-            var wobble = Wobble(colorPos.x,
-                _colorWobbleWidth, _colorWobbleDuration,
-                _colorHalfWidth, _colorHalfDuration);
+            sequence.Append(ColorItem(colorPos));
 
             sequence
-                .Append(wobble)
                 .Append(transform.DOMove(endPosition, _moveDuration))
                 .OnComplete(() => OnReady?.Invoke(_collider));
 
             sequence.Play();
         }
 
-        public void MakeEyeshadow(Vector3 eyePoint)
+        public void ApplyItem(Vector3 eyePoint)
         {
             var sequence = DOTween.Sequence().Pause();
 
@@ -96,7 +78,7 @@ namespace GameCore
                 .Append(transform.DOMove(eyePoint, _moveDuration))
                 .AppendCallback(() => OnMakeupStarted?.Invoke(_makeupDuration));
 
-            var wobble = Wobble(eyePoint.x, 
+            var wobble = Wobble(eyePoint.x,
                 _makeupWobbleWidth, _makeupWobbleDuration,
                 _makeupHalfWidth, _makeupHalfDuration);
 
@@ -108,12 +90,36 @@ namespace GameCore
             sequence.Play();
         }
 
+        protected virtual Sequence TakeItem(Vector3 colorPos)
+        {
+            var sequence = DOTween.Sequence().Pause();
+
+            sequence
+                .Append(transform.DORotate(_atHandRotation, _toHandDuration));
+
+            return sequence;
+        }
+
+        protected virtual Sequence ColorItem(Vector3 colorPos)
+        {
+            var sequence = DOTween.Sequence();
+
+            //sequence
+            //    .Join(transform.DOMove(colorPos, _moveDuration));
+
+            //var wobble = Wobble(colorPos.x,
+            //    _colorWobbleWidth, _colorWobbleDuration,
+            //    _colorHalfWidth, _colorHalfDuration);
+
+            return sequence;
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             OnTriggered?.Invoke(collision);
         }
 
-        private Sequence Wobble(float xCenter, float width, float duration, float halfWidth, float halfDuration)
+        protected Sequence Wobble(float xCenter, float width, float duration, float halfWidth, float halfDuration)
         {
             var wobble = DOTween.Sequence().Pause();
 

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6601678510c384ca43669040363c28, type: 3}
+  m_Name: LipstickConfig
+  m_EditorClassIdentifier: 
+  _baseItemImage: {fileID: 21300000, guid: 38007b2ac8983d24381aeb94b3bda8ff, type: 3}
+  _itemsData:
+  - Name: 
+    ColoredItemImage: {fileID: 21300000, guid: 38007b2ac8983d24381aeb94b3bda8ff, type: 3}
+    PalletImage: {fileID: 21300000, guid: 38007b2ac8983d24381aeb94b3bda8ff, type: 3}
+    FaceImage: {fileID: 21300000, guid: ea8643d60e854db478bb9c0e249113c0, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 21300000, guid: 32bb916a06d24a54abfda39baabee402, type: 3}
+    PalletImage: {fileID: 21300000, guid: 32bb916a06d24a54abfda39baabee402, type: 3}
+    FaceImage: {fileID: 21300000, guid: 1438b8948b548314e8a638c8e9fcc863, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 21300000, guid: 24ad25b63a098b847bcabe267a5f30e4, type: 3}
+    PalletImage: {fileID: 21300000, guid: 24ad25b63a098b847bcabe267a5f30e4, type: 3}
+    FaceImage: {fileID: 21300000, guid: 2b70e7b58689f3244984f55f6a0c15a2, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 21300000, guid: be269614b6ec19848b92c7b2d5947533, type: 3}
+    PalletImage: {fileID: 21300000, guid: be269614b6ec19848b92c7b2d5947533, type: 3}
+    FaceImage: {fileID: 21300000, guid: 877f35f7963a9f94cb882e2655d6b377, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 21300000, guid: fc1f7a9c51d0d4a45acd5a9b9d4133d8, type: 3}
+    PalletImage: {fileID: 21300000, guid: fc1f7a9c51d0d4a45acd5a9b9d4133d8, type: 3}
+    FaceImage: {fileID: 21300000, guid: 6b696ff59db1cd54cb37cb3a63b6af6a, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 21300000, guid: 60b121680ef5dd74ab96915815f85e71, type: 3}
+    PalletImage: {fileID: 21300000, guid: 60b121680ef5dd74ab96915815f85e71, type: 3}
+    FaceImage: {fileID: 21300000, guid: 49e54a8ef42a99544be7a2b67a769534, type: 3}
