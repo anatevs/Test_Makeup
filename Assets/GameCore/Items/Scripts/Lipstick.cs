@@ -28,6 +28,7 @@ namespace GameCore
         {
             gameObject.SetActive(true);
             transform.position = colorPos + _viewShift;
+
             _defaultPos = transform.position;
 
             _hidePalletImage.transform.position = colorPos;

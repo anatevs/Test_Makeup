@@ -46,8 +46,6 @@ namespace GameCore
 
         protected virtual void Start()
         {
-            _defaultPos = transform.position;
-
             _collider = GetComponent<Collider2D>();
 
             _makeupDuration = _makeupWobbleDuration * _wobbleCount;
@@ -58,6 +56,8 @@ namespace GameCore
 
         public void PrepareItem(Vector3 colorPos, Vector3 endPosition)
         {
+            _defaultPos = transform.position;
+
             var sequence = DOTween.Sequence();
 
             TakeItem(colorPos, sequence);

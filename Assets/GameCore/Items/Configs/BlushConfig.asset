@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6601678510c384ca43669040363c28, type: 3}
+  m_Name: BlushConfig
+  m_EditorClassIdentifier: 
+  _baseItemImage: {fileID: 0}
+  _itemsData:
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 3790d87d92b541545a5ddd05a2442079, type: 3}
+    FaceImage: {fileID: 21300000, guid: 27e16ecdf011a8b42b3b5a2701d07be9, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 5b23979e9e7cf6041b24b4d0f88890d9, type: 3}
+    FaceImage: {fileID: 21300000, guid: 037a97e8356f7084bbd458618887cffa, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 72674aa568b9c174e8298a2fe42d813f, type: 3}
+    FaceImage: {fileID: 21300000, guid: 34315b011d24ce34c9d241544a548367, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 7b031b26fa026c742bf52b0992705446, type: 3}
+    FaceImage: {fileID: 21300000, guid: 17ddc7cd5ff722d468b3b7a67dabdf81, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: e0347e86c6c98fe4da24031904afcb85, type: 3}
+    FaceImage: {fileID: 21300000, guid: 28a4f3a0998d82d4680622da929e61ed, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 68a6c1a95afb3cf4baca6603ca6f1cff, type: 3}
+    FaceImage: {fileID: 21300000, guid: d1ccd6cf5db92d14d9f4b8384e163a13, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 4bb92adc8db9a9a4fb6d55f7afa0e554, type: 3}
+    FaceImage: {fileID: 21300000, guid: b258efdfddffedd45a81f4e2ada0ba3d, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 233c8d995e7211b41b1f4351fd0ca0a7, type: 3}
+    FaceImage: {fileID: 21300000, guid: 57002ea72cdc2004cb45c0500e0ec2f7, type: 3}
+  - Name: 
+    ColoredItemImage: {fileID: 0}
+    PalletImage: {fileID: 21300000, guid: 5fb816829f206e64c947031384cdde4b, type: 3}
+    FaceImage: {fileID: 21300000, guid: b07aafa16c90e5c40acd11e81c42a321, type: 3}

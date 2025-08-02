@@ -15,6 +15,9 @@ namespace GameCore
         private LipstickMenu _lipstick;
 
         [SerializeField]
+        private EyeshadowMenu _blush;
+
+        [SerializeField]
         private CreamMenu _cream;
 
         [SerializeField]
@@ -38,6 +41,13 @@ namespace GameCore
             _lipstick.OnFaceIntersected += _player.SetLipstick;
 
             _lipstick.OnMakeupStarted += _view.ApplyLipstick;
+
+
+            _blush.OnReady += _player.SetCurrentHanded;
+
+            _blush.OnFaceIntersected += _player.SetEyeShadow;
+
+            _blush.OnMakeupStarted += _view.MakeEyeshadow;
 
 
             _cream.OnReady += _player.SetCurrentHanded;
@@ -64,6 +74,13 @@ namespace GameCore
             _lipstick.OnFaceIntersected -= _player.SetLipstick;
 
             _lipstick.OnMakeupStarted -= _view.ApplyLipstick;
+
+
+            _blush.OnReady -= _player.SetCurrentHanded;
+
+            _blush.OnFaceIntersected -= _player.SetEyeShadow;
+
+            _blush.OnMakeupStarted -= _view.MakeEyeshadow;
 
 
             _cream.OnReady -= _player.SetCurrentHanded;
