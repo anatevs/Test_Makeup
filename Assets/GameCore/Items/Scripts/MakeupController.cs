@@ -9,13 +9,13 @@ namespace GameCore
         private Player _player;
 
         [SerializeField]
-        private EyeshadowMenu _eyeshadow;
+        private BrushMenu _eyeshadow;
 
         [SerializeField]
         private LipstickMenu _lipstick;
 
         [SerializeField]
-        private EyeshadowMenu _blush;
+        private BrushMenu _blush;
 
         [SerializeField]
         private CreamMenu _cream;

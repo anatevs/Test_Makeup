@@ -337,7 +337,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f1c5454f9495546bd47c39d10ad780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 304225113}
+  _tool: {fileID: 304225113}
   _config: {fileID: 0}
   _pallet: {fileID: 0}
   _readyPoint: {fileID: 1991402521}
@@ -1428,10 +1428,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 822976222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed2d154cb3958c40bf66b5ebf02994b, type: 3}
+  m_Script: {fileID: 11500000, guid: d1c928c45c92f5a4283168707cd17bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 2047536426}
+  _tool: {fileID: 2047536426}
   _config: {fileID: 11400000, guid: 81ae6438ae7757b4bb69dec8720a9de3, type: 2}
   _pallet: {fileID: 1749819189}
   _readyPoint: {fileID: 1881111119}
@@ -2390,10 +2390,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1555135165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed2d154cb3958c40bf66b5ebf02994b, type: 3}
+  m_Script: {fileID: 11500000, guid: d1c928c45c92f5a4283168707cd17bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 995949101}
+  _tool: {fileID: 995949101}
   _config: {fileID: 11400000, guid: 7df2fa02deb1bd042836fd4931aaed5f, type: 2}
   _pallet: {fileID: 1133343129}
   _readyPoint: {fileID: 1881111119}
@@ -2562,7 +2562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676970481}
   m_Layer: 5
-  m_Name: FacePoints
+  m_Name: MakeupPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2604,7 +2604,7 @@ GameObject:
   - component: {fileID: 1739171778}
   - component: {fileID: 1739171777}
   m_Layer: 5
-  m_Name: View
+  m_Name: ViewZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3859,7 +3859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9398d7cf7f1fc164196d3ade3425aa6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 1745979403}
+  _tool: {fileID: 1745979403}
   _config: {fileID: 11400000, guid: 767826db5ebdfdf46b222ec956fae0ee, type: 2}
   _pallet: {fileID: 1398522040}
   _readyPoint: {fileID: 1881111119}

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,25 @@ namespace GameCore
         private void MakeOnClick()
         {
             OnButtonClicked?.Invoke(0, transform.position);
+        }
+
+        protected override void TakeItem(Vector3 colorPos, Sequence sequence)
+        {
+            SetButtonActive(false);
+
+            base.TakeItem(colorPos, sequence);
+        }
+
+        protected override void ResetTool(Sequence sequence)
+        {
+            SetButtonActive(true);
+
+            base.ResetTool(sequence);
+        }
+
+        private void SetButtonActive(bool isActive)
+        {
+            _button.interactable = isActive;
         }
     }
 }

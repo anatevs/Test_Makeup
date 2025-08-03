@@ -10,7 +10,7 @@ namespace GameCore
 
         private void Awake()
         {
-            _cream = _item as Cream;
+            _cream = _tool as Cream;
         }
 
         protected override void InitPallet()

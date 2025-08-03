@@ -5,7 +5,7 @@ namespace GameCore
 {
     [CreateAssetMenu(fileName = "MakeupItemConfig",
         menuName = "Configs/Makeup")]
-    public class ItemConfig : ScriptableObject
+    public class MakeupItemConfig : ScriptableObject
     {
         public int MaxId => _itemsData.Length;
 

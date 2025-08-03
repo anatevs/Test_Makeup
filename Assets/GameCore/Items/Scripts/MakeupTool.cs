@@ -46,8 +46,6 @@ namespace GameCore
 
         protected virtual void Start()
         {
-            _defaultPos = transform.position;
-
             _collider = GetComponent<Collider2D>();
 
             _makeupDuration = _makeupWobbleDuration * _wobbleCount;
@@ -91,6 +89,8 @@ namespace GameCore
                 .Append(transform.DOMove(_defaultPos, _moveDuration))
                 .Join(transform.DORotate(_defaultRot, _moveDuration));
 
+            ResetTool(sequence);
+
             sequence.Play();
         }
 
@@ -104,11 +104,8 @@ namespace GameCore
         {
         }
 
-        protected virtual Sequence ClearItem()
+        protected virtual void ResetTool(Sequence sequence)
         {
-            var sequence = DOTween.Sequence().Pause();
-            
-            return sequence;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

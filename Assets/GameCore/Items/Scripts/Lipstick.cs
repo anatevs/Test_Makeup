@@ -37,9 +37,9 @@ namespace GameCore
             base.TakeItem(colorPos, sequence);
         }
 
-        protected override Sequence ClearItem()
+        protected override void ResetTool(Sequence sequence)
         {
-            return base.ClearItem()
+            sequence
                 .OnComplete(() => 
                 {
                     gameObject.SetActive(false);

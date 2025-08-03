@@ -8,7 +8,7 @@ namespace GameCore
 
         private void Awake()
         {
-            _lipstick = _item as Lipstick;
+            _lipstick = _tool as Lipstick;
         }
 
         public override void Select(int id, Vector2 pos)

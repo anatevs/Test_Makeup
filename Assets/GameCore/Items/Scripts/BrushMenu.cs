@@ -1,12 +1,12 @@
 ﻿namespace GameCore
 {
-    public class EyeshadowMenu : MakeupItemMenu
+    public class BrushMenu : MakeupItemMenu
     {
         private Brush _brush;
 
         private void Awake()
         {
-            _brush = _item as Brush;
+            _brush = _tool as Brush;
         }
     }
 }
