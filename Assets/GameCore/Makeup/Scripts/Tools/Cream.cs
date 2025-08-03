@@ -41,8 +41,6 @@ namespace GameCore
         protected override void ResetTool(Sequence sequence)
         {
             SetButtonActive(true);
-
-            base.ResetTool(sequence);
         }
 
         private void SetButtonActive(bool isActive)
