@@ -26,6 +26,13 @@ namespace GameCore
             _colorHalfDuration = _colorWobbleDuration / 2;
         }
 
+        protected override void TakeItem(Vector3 colorPos, Sequence sequence)
+        {
+            _defaultPos = transform.position;
+
+            base.TakeItem(colorPos, sequence);
+        }
+
         protected override void ColorItem(Vector3 colorPos, Sequence sequence)
         {
             sequence

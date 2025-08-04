@@ -38,7 +38,7 @@ namespace GameCore
             base.TakeItem(colorPos, sequence);
         }
 
-        protected override void ResetTool(Sequence sequence)
+        protected override void ResetTool()
         {
             SetButtonActive(true);
         }

@@ -37,7 +37,7 @@ namespace GameCore
             _makeupImages.Add(_eyeShadowImage);
             _makeupImages.Add(_lipsImage);
             _makeupImages.Add(_blushImage);
-            _makeupImages.Add(_akneImage);
+            //_makeupImages.Add(_akneImage);
 
 
             _defaultSprites = new Sprite[_makeupImages.Count];
@@ -73,10 +73,14 @@ namespace GameCore
                     _makeupImages[i].sprite = _defaultSprites[i];
 
                     var color = _makeupImages[i].color;
-                    color.a = Mathf.Abs(1 - color.a);
+                    color.a = 0;
                     _makeupImages[i].color = color;
                 }
             }
+
+            var aknColor = _akneImage.color;
+            aknColor.a = 1;
+            _akneImage.color = aknColor;
         }
 
         private void SetMakeupSprite(Image image, Sprite newSprite, float duration)

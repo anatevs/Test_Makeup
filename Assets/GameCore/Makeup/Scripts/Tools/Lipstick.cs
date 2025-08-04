@@ -37,14 +37,10 @@ namespace GameCore
             base.TakeItem(colorPos, sequence);
         }
 
-        protected override void ResetTool(Sequence sequence)
+        protected override void ResetTool()
         {
-            sequence
-                .OnComplete(() => 
-                {
-                    gameObject.SetActive(false);
-                    _hidePalletImage.gameObject.SetActive(false);
-                });
+            gameObject.SetActive(false);
+            _hidePalletImage.gameObject.SetActive(false);
         }
     }
 }

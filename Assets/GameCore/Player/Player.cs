@@ -4,7 +4,7 @@ namespace GameCore
 {
     public class Player : MonoBehaviour
     {
-        private PlayerInputController _input;
+        private InputController _input;
 
         private MakeupData _makeupData;
 

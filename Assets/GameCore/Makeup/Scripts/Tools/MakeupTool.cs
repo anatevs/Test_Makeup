@@ -87,9 +87,8 @@ namespace GameCore
             sequence
                 .Append(wobble)
                 .Append(transform.DOMove(_defaultPos, _moveDuration))
-                .Join(transform.DORotate(_defaultRot, _moveDuration));
-
-            ResetTool(sequence);
+                .Join(transform.DORotate(_defaultRot, _moveDuration))
+                .OnComplete(() => ResetTool());
 
             sequence.Play();
         }
@@ -104,7 +103,7 @@ namespace GameCore
         {
         }
 
-        protected virtual void ResetTool(Sequence sequence)
+        protected virtual void ResetTool()
         {
         }
 

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace GameCore
 {
-    public sealed class PlayerInputController :
+    public sealed class InputController :
         IDisposable
     {
         public event Action<Vector3> OnTapScreen;
@@ -15,7 +15,7 @@ namespace GameCore
 
         private GameControls _controls;
 
-        public PlayerInputController()
+        public InputController()
         {
             Init();
         }
@@ -26,7 +26,7 @@ namespace GameCore
 
             _controls.Enable();
 
-            _controls.Gameplay.Tap.started += Tap;
+            _controls.Gameplay.Tap.performed += Tap;
 
             _controls.Gameplay.Drag.performed += Drag;
 
@@ -35,7 +35,7 @@ namespace GameCore
 
         void IDisposable.Dispose()
         {
-            _controls.Gameplay.Tap.started -= Tap;
+            _controls.Gameplay.Tap.performed -= Tap;
 
             _controls.Gameplay.Drag.performed -= Drag;
 
