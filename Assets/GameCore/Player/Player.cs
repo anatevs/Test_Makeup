@@ -52,11 +52,15 @@ namespace GameCore
             _isDragging = false;
 
             SetCurrentHanded(null);
+
+            _makeupData.SetDefault();
         }
 
         private void Awake()
         {
             _input = new();
+
+            _makeupData.SetDefault();
         }
 
         private void OnEnable()
@@ -114,5 +118,13 @@ namespace GameCore
         public int BlushId;
 
         public int SkinId;
+
+        public void SetDefault()
+        {
+            EyeShadowId = -1;
+            LipstickId = -1;
+            BlushId = -1;
+            SkinId = -1;
+        }
     }
 }
